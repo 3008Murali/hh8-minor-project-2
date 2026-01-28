@@ -28,6 +28,10 @@ def packet_handler(packet):
             if count > PACKET_THRESHOLD:
                 print(f"[ALERT] Possible DDoS detected from {ip}")
                 blacklist_ip(ip)
+                 if count > PACKET_THRESHOLD:
+                print(f"[ALERT] Possible DDoS detected from {ip}")
+                blacklist_ip(ip)
+
 
         ip_counter.clear()
         start_time = current_time
