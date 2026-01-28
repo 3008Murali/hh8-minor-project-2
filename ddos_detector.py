@@ -22,6 +22,8 @@ def packet_handler(packet):
 
     if current_time - start_time >= TIME_WINDOW:
         print("\n--- Traffic Analysis ---")
+     if current_time - start_time >= TIME_WINDOW:
+        print("\n--- Traffic Analysis ---")
         for ip, count in ip_counter.items():
             print(f"IP: {ip} | Packets: {count}")
 
