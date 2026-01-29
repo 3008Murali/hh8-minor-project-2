@@ -17,12 +17,10 @@ def packet_handler(packet):
     if IP in packet:
         src_ip = packet[IP].src
         ip_counter[src_ip] += 1
-src_ip = packet[IP].src
-        ip_counter[src_ip] += 1
+
     current_time = time.time()
 
-    if current_time - start_time >= TIME_WINDOW:
-        print("\n--- Traffic Analysis ---")
+   
      if current_time - start_time >= TIME_WINDOW:
         print("\n--- Traffic Analysis ---")
         for ip, count in ip_counter.items():
@@ -31,15 +29,12 @@ src_ip = packet[IP].src
             if count > PACKET_THRESHOLD:
                 print(f"[ALERT] Possible DDoS detected from {ip}")
                 blacklist_ip(ip)
-                 if count > PACKET_THRESHOLD:
-                print(f"[ALERT] Possible DDoS detected from {ip}")
-                blacklist_ip(ip)
+                 
 
 
         ip_counter.clear()
         start_time = current_time
-          ip_counter.clear()
-        start_time = current_time
+         
 
 
 def blacklist_ip(ip):
