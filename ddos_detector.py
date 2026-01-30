@@ -13,6 +13,7 @@ start_time = time.time()
 
 def packet_handler(packet):
     global start_time
+    blacklist_file
 
     if IP in packet:
         src_ip = packet[IP].src
