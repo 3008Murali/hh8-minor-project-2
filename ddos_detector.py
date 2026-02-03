@@ -44,7 +44,6 @@ def detect_ddos(packet):
                     add_to_blacklist(src_ip)
                     blacklisted_ips.add(src_ip)
             else:
-                # Reset counter after time window
                 ip_start_time[src_ip] = current_time
                 ip_counter[src_ip] = 1
 
