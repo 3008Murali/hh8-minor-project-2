@@ -29,19 +29,15 @@ def detect_ddos(packet):
     if packet.haslayer(IP):
         src_ip = packet[IP].src
         current_time = time.time()
-
-        # Ignore already blacklisted IPs
         if src_ip in blacklisted_ips:
             return
-
-        # First packet from IP
         if src_ip not in ip_start_time:
             ip_start_time[src_ip] = current_time
             ip_counter[src_ip] = 1
         else:
             ip_counter[src_ip] += 1
 
-            # Check time window
+
             if current_time - ip_start_time[src_ip] <= TIME_WINDOW:
                 if ip_counter[src_ip] > PACKET_THRESHOLD:
                     print(f"[ALERT] DDoS detected from IP: {src_ip}")
