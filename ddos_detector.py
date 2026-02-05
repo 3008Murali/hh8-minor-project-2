@@ -19,11 +19,8 @@ def load_blacklist():
 
 def add_to_blacklist(ip):
     with open(BLACKLIST_FILE, "a") as file:
-        
-
-
+        file.write(ip + "\n")
 blacklisted_ips = load_blacklist()
-
 
 def detect_ddos(packet):
     if packet.haslayer(IP):
